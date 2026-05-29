@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rivera Real Estate — Căn hộ Melbourne cho nhà đầu tư Việt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ede0;
+    --paper-2:#ece2d2;
+    --ink:#16201a;
+    --ink-soft:#3a4640;
+    --forest:#1d352a;
+    --forest-2:#16271f;
+    --brass:#b08948;
+    --brass-bright:#caa05c;
+    --line:rgba(22,32,26,.14);
+    --line-light:rgba(244,237,224,.16);
+    --shadow:0 24px 60px -28px rgba(22,32,26,.45);
+    --r:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Be Vietnam Pro',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--brass);color:var(--paper)}
+  h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:400;letter-spacing:-.01em;line-height:1.04}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;
+    color:var(--brass);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--brass);display:inline-block}
+
+  /* ---- grain overlay ---- */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- nav ---- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s ease}
+  header.scrolled{background:rgba(244,237,224,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{font-family:'Fraunces',serif;font-size:1.55rem;font-weight:500;letter-spacing:-.02em}
+  .brand span{color:var(--brass)}
+  .nav-links{display:flex;gap:38px;align-items:center}
+  .nav-links a{font-size:.9rem;font-weight:500;color:var(--ink-soft);transition:.25s;position:relative}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--brass);transition:.3s}
+  .nav-links a:hover::after{width:100%}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.92rem;
+    padding:13px 26px;border-radius:100px;transition:.3s cubic-bezier(.2,.8,.2,1);cursor:pointer;border:none;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--forest);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .btn-brass{background:var(--brass);color:#15110a}
+  .btn-brass:hover{background:var(--brass-bright);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+  .btn .arrow{transition:.3s}
+  .btn:hover .arrow{transform:translateX(4px)}
+  .lang{font-size:.78rem;color:var(--ink-soft);border:1px solid var(--line);padding:5px 12px;border-radius:100px;letter-spacing:.04em}
+
+  /* ---- hero ---- */
+  .hero{position:relative;padding:170px 0 90px;overflow:hidden}
+  .hero-bg{
+    position:absolute;inset:0;z-index:-1;
+    background:
+      radial-gradient(900px 600px at 78% -5%, rgba(176,137,72,.16), transparent 60%),
+      radial-gradient(700px 500px at 5% 110%, rgba(29,53,42,.12), transparent 55%);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+  .hero h1{font-size:clamp(2.9rem,6vw,5.2rem);margin:26px 0 0}
+  .hero h1 em{font-style:italic;color:var(--brass)}
+  .hero .lede{font-size:1.18rem;color:var(--ink-soft);max-width:30em;margin:28px 0 38px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-visual{position:relative}
+  .hero-card{
+    background:var(--forest);color:var(--paper);border-radius:20px;padding:34px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .hero-card::after{content:"";position:absolute;top:-40%;right:-30%;width:300px;height:300px;border-radius:50%;
+    background:radial-gradient(circle,rgba(176,137,72,.4),transparent 70%)}
+  .hero-card .tag{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-bright)}
+  .hero-card h3{font-size:1.9rem;margin:14px 0 6px;color:var(--paper)}
+  .hero-card .loc{font-size:.92rem;color:rgba(244,237,224,.7)}
+  .hero-card .meta{display:flex;gap:28px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-light)}
+  .hero-card .meta div{font-size:.8rem;color:rgba(244,237,224,.65)}
+  .hero-card .meta strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:500;color:var(--paper);margin-bottom:2px}
+  .float-chip{
+    position:absolute;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 18px;
+    box-shadow:var(--shadow);font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:10px;
+  }
+  .float-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--brass)}
+  .chip-1{top:-22px;right:30px;animation:bob 5s ease-in-out infinite}
+  .chip-2{bottom:-24px;left:-26px;animation:bob 5.6s ease-in-out infinite .6s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* ---- trust strip ---- */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:40px;padding-bottom:40px}
+  .stat strong{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:400;display:block;letter-spacing:-.02em}
+  .stat span{font-size:.86rem;color:var(--ink-soft)}
+  .stat strong em{font-style:normal;color:var(--brass)}
+
+  /* ---- section base ---- */
+  section{padding:104px 0}
+  .sec-head{max-width:42em}
+  .sec-head h2{font-size:clamp(2rem,3.8vw,3.1rem);margin:18px 0 0}
+  .sec-head p{color:var(--ink-soft);font-size:1.1rem;margin-top:18px}
+
+  /* ---- why ---- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .why-card{padding:34px;border:1px solid var(--line);border-radius:var(--r);transition:.35s;background:var(--paper)}
+  .why-card:hover{border-color:var(--brass);transform:translateY(-4px);box-shadow:var(--shadow)}
+  .why-card .num{font-family:'Fraunces',serif;font-size:1rem;color:var(--brass);font-weight:600}
+  .why-card h3{font-size:1.4rem;margin:16px 0 12px}
+  .why-card p{color:var(--ink-soft);font-size:.96rem}
+
+  /* ---- services (dark) ---- */
+  .services{background:var(--forest);color:var(--paper)}
+  .services .eyebrow{color:var(--brass-bright)}
+  .services .eyebrow::before{background:var(--brass-bright)}
+  .services h2{color:var(--paper)}
+  .services .sec-head p{color:rgba(244,237,224,.72)}
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:56px;background:var(--line-light);border:1px solid var(--line-light);border-radius:var(--r);overflow:hidden}
+  .svc{background:var(--forest);padding:38px;transition:.35s}
+  .svc:hover{background:var(--forest-2)}
+  .svc .idx{font-family:'Fraunces',serif;font-size:.9rem;color:var(--brass-bright);letter-spacing:.1em}
+  .svc h3{font-size:1.45rem;color:var(--paper);margin:14px 0 10px}
+  .svc p{color:rgba(244,237,224,.7);font-size:.95rem}
+
+  /* ---- opportunities ---- */
+  .opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .opp{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--paper);transition:.35s}
+  .opp:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .opp .img{height:200px;position:relative;display:flex;align-items:flex-end;padding:18px;color:var(--paper);font-weight:600}
+  .opp .img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(22,32,26,.7))}
+  .opp .img span{position:relative;z-index:2;font-size:.95rem}
+  .opp-1 .img{background:linear-gradient(135deg,#2c4a3a,#1d352a)}
+  .opp-2 .img{background:linear-gradient(135deg,#7a5a32,#b08948)}
+  .opp-3 .img{background:linear-gradient(135deg,#324352,#1f2d36)}
+  .opp .body{padding:24px}
+  .opp .price{font-family:'Fraunces',serif;font-size:1.55rem;color:var(--ink)}
+  .opp .price small{font-size:.8rem;color:var(--ink-soft);font-family:'Be Vietnam Pro';font-weight:500}
+  .opp h3{font-size:1.2rem;margin:6px 0 14px}
+  .opp .specs{display:flex;gap:18px;font-size:.84rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
+  .opp .specs b{color:var(--ink)}
+
+  /* ---- founder ---- */
+  .founder{background:var(--paper-2)}
+  .founder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .founder-portrait{
+    aspect-ratio:4/5;border-radius:18px;background:
+      radial-gradient(circle at 30% 25%,rgba(176,137,72,.35),transparent 55%),
+      linear-gradient(160deg,#243d31,#16271f);
+    position:relative;overflow:hidden;box-shadow:var(--shadow);display:flex;align-items:flex-end;padding:30px;color:var(--paper)
+  }
+  .founder-portrait .mono{font-family:'Fraunces',serif;font-size:5rem;opacity:.16;position:absolute;top:18px;left:24px}
+  .founder-portrait .cap strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem}
+  .founder-portrait .cap span{font-size:.85rem;color:rgba(244,237,224,.7)}
+  .founder blockquote{font-family:'Fraunces',serif;font-size:1.9rem;line-height:1.32;letter-spacing:-.01em;margin:24px 0 22px}
+  .founder blockquote em{color:var(--brass);font-style:italic}
+  .founder p{color:var(--ink-soft);font-size:1.02rem}
+
+  /* ---- form / CTA ---- */
+  .lead{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+  .lead::before{content:"";position:absolute;top:-30%;right:-10%;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,rgba(176,137,72,.18),transparent 65%)}
+  .lead .eyebrow{color:var(--brass-bright)}
+  .lead .eyebrow::before{background:var(--brass-bright)}
+  .lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;position:relative}
+  .lead h2{color:var(--paper);font-size:clamp(2.1rem,4vw,3.2rem);margin:18px 0}
+  .lead .sub{color:rgba(244,237,224,.7);font-size:1.08rem;max-width:26em}
+  .lead-points{margin-top:34px;display:flex;flex-direction:column;gap:16px}
+  .lead-points li{list-style:none;display:flex;gap:13px;align-items:center;color:rgba(244,237,224,.85);font-size:.98rem}
+  .lead-points .tick{width:22px;height:22px;border-radius:50%;background:var(--brass);color:#15110a;display:grid;place-items:center;font-size:.7rem;font-weight:700;flex-shrink:0}
+  form{background:var(--paper);border-radius:18px;padding:36px;box-shadow:var(--shadow)}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:.82rem;font-weight:600;color:var(--ink-soft);margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:inherit;font-size:.96rem;color:var(--ink);background:var(--paper-2);
+    border:1px solid var(--line);border-radius:10px;padding:13px 15px;transition:.25s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brass);background:#fff;box-shadow:0 0 0 4px rgba(176,137,72,.12)}
+  .field textarea{resize:vertical;min-height:84px}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form .btn-brass{width:100%;justify-content:center;margin-top:6px;padding:15px}
+  .form-note{font-size:.76rem;color:var(--ink-soft);margin-top:14px;text-align:center}
+  .success{text-align:center;padding:40px 10px}
+  .success .ring{width:62px;height:62px;border-radius:50%;background:var(--brass);color:#15110a;display:grid;place-items:center;font-size:1.6rem;margin:0 auto 18px}
+  .success h3{font-size:1.6rem;color:var(--ink)}
+  .success p{color:var(--ink-soft);margin-top:8px}
+
+  /* ---- footer ---- */
+  footer{background:var(--forest-2);color:rgba(244,237,224,.75);padding:64px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+  footer .brand{color:var(--paper)}
+  footer p{font-size:.92rem;max-width:26em;margin-top:14px}
+  .foot-col h4{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-bright);margin-bottom:16px;font-weight:600}
+  .foot-col a,.foot-col span{display:block;font-size:.92rem;margin-bottom:9px;transition:.25s}
+  .foot-col a:hover{color:var(--paper)}
+  .foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid var(--line-light);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.78rem;color:rgba(244,237,224,.5)}
+  .disclaimer{font-size:.74rem;color:rgba(244,237,224,.42);margin-top:18px;max-width:60em;line-height:1.6}
+
+  /* ---- reveal anim ---- */
+  .reveal{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .hero h1,.hero .lede,.hero-cta,.hero .eyebrow{opacity:0;animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .hero .eyebrow{animation-delay:.1s}
+  .hero h1{animation-delay:.22s}
+  .hero .lede{animation-delay:.4s}
+  .hero-cta{animation-delay:.55s}
+  .hero-visual{opacity:0;animation:rise 1s cubic-bezier(.2,.8,.2,1) .5s forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media(max-width:900px){
+    .nav-links{display:none}
+    .hero-grid,.founder-grid,.lead-grid{grid-template-columns:1fr;gap:48px}
+    .why-grid,.opp-grid,.svc-grid{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-grid{grid-template-columns:1fr;gap:32px}
+    .row-2{grid-template-columns:1fr}
+    .wrap{padding:0 22px}
+    .hero{padding:130px 0 70px}
+    section{padding:74px 0}
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap">
+    <nav>
+      <div class="brand">Rivera<span>.</span></div>
+      <div class="nav-links">
+        <a href="#why">Vì sao Melbourne</a>
+        <a href="#services">Dịch vụ</a>
+        <a href="#opportunities">Cơ hội</a>
+        <a href="#about">Về Rivera</a>
+        <a href="#contact" class="btn btn-primary">Đặt lịch tư vấn</a>
+      </div>
+      <span class="lang">VI · EN</span>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Bất động sản Melbourne · Tư vấn song ngữ</span>
+        <h1>Sở hữu căn hộ <em>Melbourne</em>, ngay từ Việt Nam.</h1>
+        <p class="lede">Rivera đồng hành cùng nhà đầu tư Việt và người Việt ở nước ngoài trên toàn hành trình — chọn dự án, xử lý FIRB &amp; pháp lý, kết nối vay vốn, đến bàn giao và cho thuê. Một đầu mối, hai ngôn ngữ, không khoảng cách.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-brass">Đặt lịch tư vấn miễn phí <span class="arrow">→</span></a>
+          <a href="#opportunities" class="btn btn-ghost">Xem cơ hội đầu tư</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <span class="tag">Cơ hội nổi bật</span>
+          <h3>Southbank Residences</h3>
+          <div class="loc">Inner Melbourne · CBD-adjacent</div>
+          <div class="meta">
+            <div><strong>4.1%</strong>Lợi suất cho thuê ~</div>
+            <div><strong>AUD 620k</strong>Từ mức</div>
+            <div><strong>2026</strong>Bàn giao</div>
+          </div>
+        </div>
+        <div class="float-chip chip-1"><span class="dot"></span> Hỗ trợ FIRB &amp; pháp lý</div>
+        <div class="float-chip chip-2"><span class="dot"></span> Tư vấn 100% tiếng Việt</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat reveal"><strong>AUD 20M<em>+</em></strong><span>Giá trị giao dịch năm 2025</span></div>
+    <div class="stat reveal"><strong>100%</strong><span>Tư vấn song ngữ Việt – Anh</span></div>
+    <div class="stat reveal"><strong>Boutique</strong><span>Chuyên biệt, do nhà sáng lập trực tiếp phụ trách</span></div>
+    <div class="stat reveal"><strong>HP ⇄ MEL</strong><span>Hiện diện tại Hải Phòng &amp; Melbourne</span></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Vì sao Melbourne</span>
+      <h2>Một trong những thị trường bất động sản đáng tin cậy nhất thế giới.</h2>
+      <p>Pháp lý minh bạch, quyền sở hữu rõ ràng cho người nước ngoài, và một thành phố liên tục được xếp hạng đáng sống bậc nhất toàn cầu.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="num">01</div>
+        <h3>Pháp lý vững &amp; minh bạch</h3>
+        <p>Hệ thống Torrens Title bảo vệ quyền sở hữu, hợp đồng rõ ràng và lộ trình FIRB cụ thể cho nhà đầu tư nước ngoài.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="num">02</div>
+        <h3>Dòng tiền &amp; tăng giá vốn</h3>
+        <p>Nhu cầu thuê ổn định từ sinh viên và người nhập cư, kết hợp tiềm năng tăng giá dài hạn ở khu vực nội đô.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="num">03</div>
+        <h3>Trú ẩn tài sản bằng AUD</h3>
+        <p>Đa dạng hóa danh mục bằng tài sản thực ở một nền kinh tế phát triển, với đồng tiền và môi trường chính trị ổn định.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Dịch vụ trọn gói</span>
+      <h2>Rivera xử lý phần khó. Bạn chỉ việc đầu tư.</h2>
+      <p>Mua bất động sản từ nước ngoài có nhiều rào cản — pháp lý, vay vốn, chuyển tiền, quản lý. Rivera gom tất cả về một đầu mối.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="idx">A —</div>
+        <h3>Tư vấn &amp; chọn lọc dự án</h3>
+        <p>Phân tích vị trí, chủ đầu tư, dòng tiền và tiềm năng tăng giá để bạn chỉ cân nhắc những cơ hội thực sự đáng tiền.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="idx">B —</div>
+        <h3>FIRB &amp; pháp lý cho người nước ngoài</h3>
+        <p>Hướng dẫn xin chấp thuận FIRB, kết nối luật sư chuyển nhượng (conveyancer) và rà soát hợp đồng song ngữ.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="idx">C —</div>
+        <h3>Vay vốn &amp; chuyển tiền</h3>
+        <p>Kết nối broker chuyên cho khách nước ngoài và tư vấn kênh chuyển tiền hợp pháp, tối ưu tỷ giá.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="idx">D —</div>
+        <h3>Bàn giao &amp; quản lý cho thuê</h3>
+        <p>Kiểm tra bàn giao, kết nối quản lý tài sản và theo dõi dòng tiền cho thuê — bạn quản lý từ xa, an tâm tuyệt đối.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITIES -->
+<section id="opportunities">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cơ hội đầu tư</span>
+      <h2>Một vài dự án Rivera đang theo dõi.</h2>
+      <p>Danh mục được chọn lọc theo vị trí, dòng tiền và uy tín chủ đầu tư. Liên hệ để nhận hồ sơ chi tiết và phân tích đầy đủ.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp opp-1 reveal">
+        <div class="img"><span>Southbank · CBD-adjacent</span></div>
+        <div class="body">
+          <div class="price">AUD 620k <small>/ từ</small></div>
+          <h3>Southbank Residences</h3>
+          <div class="specs"><span><b>1–2</b> PN</span><span><b>~4.1%</b> lợi suất</span><span><b>2026</b> bàn giao</span></div>
+        </div>
+      </div>
+      <div class="opp opp-2 reveal">
+        <div class="img"><span>Docklands · Waterfront</span></div>
+        <div class="body">
+          <div class="price">AUD 540k <small>/ từ</small></div>
+          <h3>Harbour Quarter</h3>
+          <div class="specs"><span><b>1–2</b> PN</span><span><b>~4.4%</b> lợi suất</span><span><b>Sẵn</b> bàn giao</span></div>
+        </div>
+      </div>
+      <div class="opp opp-3 reveal">
+        <div class="img"><span>Carlton · Cạnh đại học</span></div>
+        <div class="body">
+          <div class="price">AUD 480k <small>/ từ</small></div>
+          <h3>University Gardens</h3>
+          <div class="specs"><span><b>Studio–2</b> PN</span><span><b>~4.7%</b> lợi suất</span><span><b>2025</b> bàn giao</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="about" class="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-portrait reveal">
+        <div class="mono">R</div>
+        <div class="cap"><strong>Rivera Real Estate</strong><span>Boutique · Founder-led</span></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Về Rivera</span>
+        <blockquote>Tôi không bán càng nhiều càng tốt. Tôi chọn lọc để mỗi khách hàng <em>đầu tư đúng</em>.</blockquote>
+        <p>Rivera là một agency boutique, do nhà sáng lập trực tiếp phụ trách, hoạt động giữa Hải Phòng và Melbourne. Vì làm việc trực tiếp với từng khách hàng thay vì qua nhiều tầng môi giới, bạn nhận được tư vấn thẳng thắn, song ngữ, và một người thực sự hiểu cả hai đầu giao dịch — văn hóa Việt và thị trường Úc. Mục tiêu không phải hoa hồng nhanh, mà là những quyết định đầu tư mà bạn sẽ vẫn hài lòng sau nhiều năm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD / CONTACT -->
+<section id="contact" class="lead">
+  <div class="wrap">
+    <div class="lead-grid">
+      <div class="reveal">
+        <span class="eyebrow">Bắt đầu</span>
+        <h2>Đặt lịch tư vấn miễn phí.</h2>
+        <p class="sub">Để lại thông tin, Rivera sẽ liên hệ trong vòng 24 giờ với một buổi tư vấn không ràng buộc — bằng tiếng Việt hoặc tiếng Anh.</p>
+        <ul class="lead-points">
+          <li><span class="tick">✓</span> Phân tích phù hợp với ngân sách &amp; mục tiêu của bạn</li>
+          <li><span class="tick">✓</span> Giải thích rõ FIRB, thuế và chi phí ẩn</li>
+          <li><span class="tick">✓</span> Không spam, không ép buộc</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <form id="leadForm">
+          <div class="field">
+            <label>Họ và tên</label>
+            <input type="text" name="name" placeholder="Nguyễn Văn A" required>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="ban@email.com" required>
+            </div>
+            <div class="field">
+              <label>Số điện thoại / Zalo</label>
+              <input type="tel" name="phone" placeholder="+84 ..." required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Ngân sách đầu tư</label>
+            <select name="budget">
+              <option>Dưới AUD 500k</option>
+              <option>AUD 500k – 750k</option>
+              <option>AUD 750k – 1M</option>
+              <option>Trên AUD 1M</option>
+              <option>Chưa xác định</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Bạn quan tâm điều gì? (không bắt buộc)</label>
+            <textarea name="message" placeholder="Ví dụ: căn hộ cho thuê khu nội đô, hoặc câu hỏi về FIRB..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-brass">Gửi yêu cầu tư vấn <span class="arrow">→</span></button>
+          <p class="form-note">Thông tin của bạn được bảo mật và chỉ dùng để liên hệ tư vấn.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">Rivera<span>.</span></div>
+        <p>Agency boutique chuyên căn hộ Melbourne cho nhà đầu tư Việt và người Việt ở nước ngoài. Một đầu mối, song ngữ, xuyên suốt hành trình.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Liên hệ</h4>
+        <a href="#contact">Đặt lịch tư vấn</a>
+        <a href="mailto:hello@rivera.example">hello@rivera.example</a>
+        <span>Zalo / WhatsApp</span>
+      </div>
+      <div class="foot-col">
+        <h4>Hiện diện</h4>
+        <span>Hải Phòng, Việt Nam</span>
+        <span>Melbourne, Úc</span>
+      </div>
+    </div>
+    <p class="disclaimer">Thông tin trên trang chỉ mang tính tham khảo và minh họa, không cấu thành lời khuyên đầu tư, tài chính, thuế hay pháp lý. Tên dự án, mức giá và lợi suất là ví dụ minh họa. Mọi quyết định đầu tư cần được cân nhắc cùng cố vấn tài chính, thuế và pháp lý độc lập. Đầu tư bất động sản có rủi ro; giá trị tài sản có thể tăng hoặc giảm.</p>
+    <div class="foot-bottom">
+      <span>© 2026 Rivera Real Estate</span>
+      <span>Hải Phòng · Melbourne</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scrolled state
+  const hdr=document.getElementById('hdr');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>20));
+
+  // reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*70)+'ms';io.observe(el);});
+
+  // form -> client-side success state
+  document.getElementById('leadForm').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    const name=this.name.value.split(' ').pop();
+    this.innerHTML='<div class="success"><div class="ring">✓</div><h3>Cảm ơn '+(name||'bạn')+'!</h3><p>Rivera đã nhận được yêu cầu và sẽ liên hệ với bạn trong vòng 24 giờ.</p></div>';
+  });
+</script>
+</body>
+</html>
